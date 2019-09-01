@@ -1,0 +1,26 @@
+html {
+    height: 100%;
+    background-color: darkgreen;
+    margin: 0 auto;
+    color: bisque;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5em;
+}
+.btns {
+    position: absolute;
+    bottom: 0;
+}
+button {
+    border:none;
+    border-radius: 5px;
+    padding: 15px 25px;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 20px;
+    background-color: darkred;
+    color: #F6F7EB;
+    text-shadow: 1px 1px 2px rgba(10, 10, 10, 1);
+}
+button:hover {
+    background-color: red;
+}
