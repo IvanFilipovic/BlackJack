@@ -3,19 +3,19 @@
         25.08.2019
 */
 
-// Declaring card variables
+// Varijable karti
 let suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades'],
     values = ['Ace', 'King', 'Queen', 'Jack',
     'Ten', 'Nine', 'Eight', 'Seven', 'Six',
     'Five', 'Four', 'Three', 'Two'];
 
-// DOM variables
+// DOM varijable
 let textArea = document.getElementById('text-area'),
     newGameBtn = document.getElementById('newGameBtn'),
     hitBtn = document.getElementById('hitBtn'),
     stayBtn = document.getElementById('stayBtn');
 
-// Game variables
+// Varijable igre
 let gameStarted = false,
     gameOver = false,
     playerWon = false,
@@ -30,7 +30,7 @@ stayBtn.style.display = 'none';
 showStatus();
 
 
-// Game start Function
+// Funkcija za početak igre
 newGameBtn.addEventListener('click', function() {
     gameStarted = true;
     gameOver = false;
@@ -59,7 +59,7 @@ stayBtn.addEventListener('click', function(){
     showStatus();
 });
 
-// Creating a deck, object with two properties value and suit
+// Stvaranje špila - objekt sa dvije vrijednosti boja i brojčana vrijednost
 function createDeck(){
     let deck = [];
     for (let suitId = 0; suitId < suits.length; suitId++) {
@@ -74,7 +74,7 @@ function createDeck(){
     return deck;
 }
 
-// Adding randomnes, :D, into our deck
+// Funkcija za slučajnost
 function shuffleDeck(deck) {
     for (let i = 0; i < deck.length; i++) {
         let shuffleId = Math.round(Math.random() * deck.length);
@@ -92,8 +92,7 @@ function getCard() {
     return deck.shift();
 }
 
-// Adding values to the card, I know thi can be writen with less code and more readible
-// butt it works soo :D
+// Dodjeljivanje vrijednosti kartama
 
 function getCardValue(card) {
     switch(card.value) {
@@ -130,7 +129,7 @@ function getScore(cardArray) {
             ace = true;
         }
     }
-    // Ace value can be 11 or 1 so we got to take that in mind
+    // Vrijdnost asa 10 ili 1
     if (ace && score + 10 <= 21) {
         return score + 10;
     }
@@ -146,7 +145,7 @@ function checkEnd() {
     updateScore();
 
     if (gameOver) {
-        // Leting the dealer to take cards, in blackajck dealer can take cards if their socre is less then 17
+        // Ako je vrijednost kuće viša od 17 ne smije uzeti dodatnu kartu
         while (dealerScore < playerScore && playerScore <= 21 && dealerScore < 17) {
             dealerCards.push(getCard());
             updateScore();
